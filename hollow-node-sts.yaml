@@ -44,7 +44,8 @@ spec:
           path: /var/log
       containers:
       - name: hollow-kubelet
-      image: staging-k8s.gcr.io/kubemark:latest
+        image: staging-k8s.gcr.io/kubemark:latest
+        imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 4194
         - containerPort: 10250
@@ -77,6 +78,7 @@ spec:
           privileged: true
       - name: hollow-proxy
         image: staging-k8s.gcr.io/kubemark:latest
+        imagePullPolicy: IfNotPresent
         env:
         - name: CONTENT_TYPE
           valueFrom:
